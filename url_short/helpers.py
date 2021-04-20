@@ -1,5 +1,8 @@
 import base64
 import hashlib
+import urllib.parse
+
+from quart import url_for
 
 
 def make_short_url(url: str) -> str:
@@ -7,3 +10,11 @@ def make_short_url(url: str) -> str:
     safe_hashed = base64.urlsafe_b64encode(hashed).decode()
     short_id = safe_hashed[:8]
     return short_id
+
+
+def short_id_to_url(short_url: str) -> str:
+    return url_for("use", _external=True, short_id=short_url)
+
+
+def make_url_safe(url: str) -> str:
+    return urllib.parse.quote(url, safe="")

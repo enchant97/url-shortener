@@ -1,11 +1,12 @@
 from functools import lru_cache
+from typing import Optional
 
 from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
     DB_URI: str
-    DOMAIN: str
+    SERVER_NAME: Optional[str] = None
     HOST: str = "127.0.0.1"
     PORT: int = 8000
     LOG_LEVEL: str = "WARNING"

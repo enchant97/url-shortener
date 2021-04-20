@@ -5,7 +5,7 @@ from tortoise.contrib.quart import register_tortoise
 
 from .config import get_settings
 from .database import crud, models
-from .helpers import make_short_url
+from .helpers import make_short_url, make_url_safe, short_id_to_url
 
 app = Quart(__name__)
 
@@ -15,7 +15,7 @@ async def create():
     short_url = None
     if request.method == "POST":
         long_url = (await request.form)["url"]
-
+        long_url = make_url_safe(long_url)
         short_url = await crud.get_url_by_url(long_url)
 
         # create a short if none exist with that url
@@ -26,8 +26,10 @@ async def create():
                 # somehow the hash is used in another url
                 logging.error("hash was used in another url: %s", short_url)
                 abort(500)
+            short_url = short_id_to_url(short_url)
         else:
             short_url = short_url.short_id
+            short_url = short_id_to_url(short_url)
     return await render_template("create.html", short_url=short_url)
 
 
@@ -42,6 +44,7 @@ async def use(short_id: str):
 def create_app():
     logging.basicConfig(
         level=logging.getLevelName(get_settings().LOG_LEVEL))
+    app.config["SERVER_NAME"] = get_settings().SERVER_NAME
     register_tortoise(
         app,
         db_url=get_settings().DB_URI,
