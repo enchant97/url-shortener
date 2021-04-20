@@ -17,4 +17,6 @@ def short_id_to_url(short_url: str) -> str:
 
 
 def make_url_safe(url: str) -> str:
-    return urllib.parse.quote(url, safe="")
+    url_split = urllib.parse.urlparse(url, scheme="http")
+    url_split.path.replace("\t", "")
+    return urllib.parse.urlunparse(url_split)
