@@ -3,14 +3,12 @@
 {% block main %}
 <form action="" method="post">
     <label for="url">URL:</label>
-    <input type="text" name="url" id="url" required placeholder="url...">
+    <input type="text" name="url" id="url" required placeholder="https://...">
     <button type="submit">Create</button>
-    <label for="last-short">Last Short</label>
-    <label id="last-short">
-        {% if short_url %}
-        {{ short_url }}
-        {% endif %}
-    </label>
+    {% if short_url %}
+    <label for="last-short">Last Short:</label>
+    <input type="text" id="last-short" readonly value="{{ short_url }}">
+    {% endif %}
 </form>
 
 {% endblock %}

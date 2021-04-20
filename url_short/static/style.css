@@ -1,0 +1,81 @@
+:root {
+    --font-dark: black;
+    --font-placeholder: #505a69;
+    --bg-bnt: #adadad;
+    --bg-body: #9299a5;
+    --bg-body2: #9096a1;
+    --bg-body3: #767d8a;
+    --border-radius: 10px;
+    --font-family-title: 'Roboto', sans-serif;
+    --font-family-main: 'Open Sans', sans-serif;
+}
+
+label,
+input,
+footer,
+a,
+button {
+    font-family: var(--font-family-main);
+    font-size: 1em;
+    color: var(--font-dark);
+}
+
+h1,
+h3 {
+    text-align: center;
+    font-family: var(--font-family-title);
+    color: var(--font-dark);
+}
+
+body {
+    background-color: var(--bg-body);
+}
+
+form {
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-body2);
+    width: max-content;
+    border-radius: var(--border-radius);
+    gap: 5px;
+}
+
+input {
+    padding: 2px 6px;
+    background-color: var(--bg-body3);
+    color: var(--font-light);
+    border: 2px solid black;
+    border-radius: var(--border-radius);
+}
+
+::placeholder {
+    color: var(--font-placeholder);
+    opacity: 1;
+}
+
+button {
+    border: none;
+    text-decoration: none;
+    color: var(--font-dark);
+    padding: 10px 20px;
+    background-color: var(--bg-bnt);
+    border-radius: var(--border-radius);
+}
+
+button:hover,
+.button:hover {
+    cursor: pointer;
+    transition-duration: 400ms;
+    background-color: black;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    margin-top: 100px;
+    border-top-style: solid;
+    padding-top: 10px;
+}
