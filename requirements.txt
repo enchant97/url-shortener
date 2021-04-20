@@ -1,0 +1,4 @@
+quart
+hypercorn
+tortoise-orm
+pydantic[dotenv]

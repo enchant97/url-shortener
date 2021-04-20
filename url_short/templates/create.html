@@ -1,0 +1,9 @@
+{% extends "/shared/base.jinja2" %}
+{% block title %}Create{% endblock %}
+{% block main %}
+<form action="" method="post">
+    <label for="url">URL:</label>
+    <input type="text" name="url" id="url" required placeholder="url...">
+    <button type="submit">Create</button>
+</form>
+{% endblock %}
