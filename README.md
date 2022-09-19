@@ -5,6 +5,15 @@ Using asyncio for everything possible.
 
 > Please note this project is not fully tested and is a WIP.
 
+## This Project Is EOL
+What Does This Mean?
+- No more updates
+- This repo will be archived
+
+Why?
+- I have decided to make it using Go, called [url-shorter](https://github.com/enchant97/url-shorter)
+    - A go implementation will allow for faster redirects
+
 ## Config
 You can configure the app using a .env file or through environment variables.
 
